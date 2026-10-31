@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md. Moshiur Rahman | Senior Software Engineer</title>
+  <meta name="description" content="Md. Moshiur Rahman, Senior Software Engineer with ~6 years of experience building scalable systems with Java, Spring Boot, PostgreSQL and AWS, and React and AngularJS frontends.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://md-moshiurrahman.github.io/">
+  <meta property="og:title" content="Md. Moshiur Rahman | Senior Software Engineer">
+  <meta property="og:description" content="Senior Software Engineer with ~6 years of experience building scalable systems with Java, Spring Boot, PostgreSQL and AWS, and React and AngularJS frontends.">
+  <meta property="og:image" content="https://md-moshiurrahman.github.io/photo.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://md-moshiurrahman.github.io/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23111827'/><text x='50' y='64' font-size='42' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>MR</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+  <aside class="sidebar">
+    <div class="side-inner">
+    <a href="#about" class="side-name">Md. Moshiur Rahman</a>
+    <nav class="side-nav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    </div>
+  </aside>
+
+  <div class="content">
+
+  <main id="top">
+
+    <section id="about" class="intro">
+      <div class="intro-head">
+        <img class="photo" src="photo.jpg" alt="Md. Moshiur Rahman" width="112" height="112">
+        <div>
+          <h1>Md. Moshiur Rahman</h1>
+          <p class="role">Senior Software Engineer at MarginEdge</p>
+          <p class="location">Dhaka, Bangladesh</p>
+        </div>
+      </div>
+      <p class="summary">
+        Software engineer with around 6 years of experience building scalable systems using Java, Spring Boot,
+        PostgreSQL and AWS, and the React and AngularJS frontends on top of them. I've led technical initiatives
+        across distributed microservices and event-driven, cloud-native systems that improved reliability and
+        performance and reduced infrastructure costs. I work closely with data scientists, product managers,
+        designers, QA and other engineering teams to take work from idea to production. At MarginEdge I joined as
+        a Software Engineer II and was promoted to Senior Software Engineer I.
+      </p>
+      <p class="summary">
+        Software development is changing quickly with AI, and I'm changing with it. The invoice pipeline I work
+        on uses LLMs from OpenAI and Anthropic (on AWS Bedrock) to read invoices and match products, and I use AI
+        coding agents every day to move faster on investigation, design and implementation. AI speeds up my work,
+        but it doesn't replace my judgment. I still own the design, check the output against the real code and
+        data, and stay responsible for what ships.
+      </p>
+      <p class="links">
+        <a href="mailto:rahmanfiros123@gmail.com">rahmanfiros123@gmail.com</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/Md-MoshiurRahman/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+
+      <!-- MarginEdge, one company with two roles -->
+      <article class="company">
+        <div class="company-head">
+          <h3><a class="co-link" href="https://www.marginedge.com/" target="_blank" rel="noopener">MarginEdge</a> <span class="via">via <a class="co-link" href="https://tekarsh.com/" target="_blank" rel="noopener">Tekarsh</a></span></h3>
+          <span class="dates">Feb 2023 - Present</span>
+        </div>
+        <p class="company-desc">
+          Restaurant management software that helps thousands of restaurants control costs, with invoice
+          processing, inventory, recipe costing, bill pay, and POS and accounting integrations. I work on the
+          invoice processing team.
+        </p>
+
+        <div class="roles">
+          <div class="role-item">
+            <div class="role-head">
+              <h4>Senior Software Engineer I</h4>
+              <span class="dates">Feb 2026 - Present</span>
+            </div>
+            <ul>
+              <li>
+                <strong>Designed and led an invoice automation platform that now handles 58% of ~200k invoices a week.</strong>
+                I designed the architecture of this greenfield platform using the Saga pattern and AWS Step
+                Functions, led its implementation, and built a large part of it myself. Each invoice moves through a
+                set of automated steps that can either complete, hand work off to an analyst and wait for the
+                result, or roll back cleanly. It now fully or partially automates 58% of ~200k invoices every week.
+              </li>
+              <li>
+                <strong>Designed the LLM layer behind our invoice automation.</strong>
+                I designed a single LangChain4j interface over OpenAI GPT and Anthropic Claude models on AWS Bedrock,
+                with structured JSON output, token tracking, throttling handling and a path for testing new models on
+                real invoices, and the team built it from that plan. It now extracts line items from invoice images
+                and reads totals, misc charges and handwriting. An eligibility check keeps LLM calls to questions
+                worth the cost, and answers that fail validation go to an analyst.
+              </li>
+              <li>
+                <strong>Cut analyst task load time from ~8s to under 500ms for 300+ daily analysts.</strong>
+                Analysts waited around 8 seconds every time they opened their next task. I led the architecture and
+                implementation of a preloading layer that prepares upcoming tasks in the background and serves them
+                from a cache. I wrapped the existing flow instead of rewriting it, which kept the rollout low risk.
+                Average load time dropped from ~8s to under 500ms for 300+ daily analysts.
+              </li>
+              <li>
+                <strong>Brought p99 response time on the analysts' main report from ~10.7s to under 0.8s.</strong>
+                After peak-hour incidents where the main PostgreSQL database hit very high CPU as analysts started
+                their shift, I took ownership of the follow-up. I moved reads that don't need live data to read
+                replicas, served the heaviest report query from a single shared cache instead of computing it per
+                user, and added rate limiting and a safer emergency toggle. On that report's endpoint, p99 response
+                time dropped from ~10.7s to under 0.8s, the median from ~383ms to 26ms, and the slowest calls from
+                ~23s to under 2s.
+              </li>
+              <li>
+                <strong>Stopped ~20k unnecessary customer emails a day.</strong>
+                I identified that customers were receiving a large number of emails whenever we deleted an invoice,
+                and that most of them were for documents that weren't invoices at all, where the customer had
+                nothing to do. I led the work to change this. Deletions that need no action, such as non-invoices
+                and invoices dated before the customer's start date, are now listed in one weekly summary email per
+                restaurant location (~12k locations) instead of being sent one by one. Actionable ones, like unclear
+                images or missing pages, are still sent right away. Emails for non-invoice documents, which used to
+                reach ~20k a day on weekdays and peaked at ~26k, dropped to zero after the release.
+              </li>
+              <li>
+                <strong>Conducted 150+ technical interviews and mentored junior engineers.</strong>
+                I've been interviewing candidates since my Software Engineer II days, more than 150 since mid-2024. I mentor junior engineers by reviewing their designs and code while letting them
+                own their projects. I'm also part of the on-call rotation, for example fixing an issue where task
+                assignment stopped working for analysts during a public holiday.
+              </li>
+            </ul>
+          </div>
+
+          <div class="role-item">
+            <div class="role-head">
+              <h4>Software Engineer II</h4>
+              <span class="dates">Feb 2023 - Jan 2026</span>
+            </div>
+            <ul>
+              <li>
+                <strong>Automated 62% of ~120k weekly vendor item tasks.</strong>
+                These tasks are created whenever a new vendor item shows up on an invoice and has to be matched to
+                the restaurant's catalog. I led the design and delivery of the automation, deployed new
+                generations of the prediction models (v3 to v8), built the rules for when a prediction is safe to
+                auto-close, and fixed issues that were quietly holding coverage back. We now automate 62% of ~120k
+                weekly tasks, which removed a large amount of manual work for analysts.
+              </li>
+              <li>
+                <strong>Built and ran LLM-based product prediction in production.</strong>
+                From v6 onward, each model first retrieves the most similar products for the restaurant using
+                OpenSearch k-NN search, then asks an LLM (GPT-4o mini, and later Claude 3.5, 3.7 and 4.5 Sonnet on
+                AWS Bedrock) to pick the right one, and only accepts answers that match a retrieved candidate. On the
+                production side, I handled Bedrock throttling, called the expensive model only when cheaper ones
+                weren't confident, combined several models through plurality voting before auto-closing a task, and
+                designed a more scalable model invocation flow with concurrency control and proper message routing.
+              </li>
+              <li>
+                <strong>Built frontend features for the apps analysts use to process invoices.</strong>
+                I worked on the task portal, our new ReactJS app for invoice processing, and on the invoice
+                processing pages of our legacy AngularJS app, building features end to end together with the
+                Spring Boot services behind them.
+              </li>
+              <li>
+                <strong>Reduced infrastructure costs by up to 67% with no impact on performance.</strong>
+                I reviewed CPU and memory usage across Lambda, ECS, CodeBuild and OpenSearch and safely scaled down
+                over-provisioned resources. Monthly costs dropped ~67% for Lambda, ~51% for ECS and ~61% for
+                CodeBuild.
+              </li>
+              <li>
+                <strong>Migrated our search cluster with zero downtime and ~30% lower monthly cost.</strong>
+                I architected the move from OpenSearch Serverless to Managed. I put an API Gateway and Lambda
+                abstraction layer between the clients and the cluster, so clients didn't need to change, and rebuilt
+                the data ingestion pipeline with CodeBuild, SQS and Lambda. The cutover had zero downtime, and
+                monthly cost dropped ~30%.
+              </li>
+              <li>
+                <strong>Introduced infrastructure as code with AWS CDK.</strong>
+                Our AWS resources used to be created by hand or through CloudFormation templates. I started using
+                AWS CDK at MarginEdge and moved our CI/CD to it, packaging and deploying several backend services and
+                ML models. Deployments became faster, repeatable and zero downtime.
+              </li>
+              <li>
+                <strong>Cut incident response time from ~2 hours to under 15 minutes.</strong>
+                I set up system-wide observability with CloudWatch dashboards, alarms and canaries covering 30+
+                business-critical metrics. Problems that used to be reported by analysts or customers were now caught
+                by alarms first.
+              </li>
+              <li>
+                <strong>Raised message processing reliability to 99.5%.</strong>
+                I designed event-driven backend services using SNS and SQS with idempotent consumers, retry
+                mechanisms and dead-letter queues, so that duplicate or failed messages no longer caused bad data or
+                lost work. Message processing reliability went up to 99.5%.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Apurba -->
+      <article class="company">
+        <div class="company-head">
+          <h3><a class="co-link" href="https://apurba.com.bd/" target="_blank" rel="noopener">Apurba Technologies</a></h3>
+          <span class="dates">Mar 2021 - Jan 2023</span>
+        </div>
+        <div class="roles">
+          <div class="role-item">
+            <div class="role-head">
+              <h4>Software Engineer</h4>
+              <span class="dates">Mar 2021 - Jan 2023</span>
+            </div>
+            <ul>
+              <li>
+                <strong>Improved table detection accuracy by ~30%.</strong>
+                I led the development of an event-driven layout analysis and reconstruction system using REST APIs
+                and SQS, which analyzes the structure of documents and rebuilds them, and improved its table
+                detection algorithms, which also made processing more efficient.
+              </li>
+              <li>
+                <strong>Reduced processing time by 42%.</strong>
+                I redesigned an S3-based storage system and how data moved through it, which also simplified the
+                data workflows.
+              </li>
+              <li>
+                <strong>Built an ASCII-Unicode interoperability engine.</strong>
+                It converts text between legacy ASCII-based encodings and Unicode, improving text encoding and data
+                exchange between systems.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>Java, TypeScript, JavaScript, Python</dd>
+        <dt>Frameworks</dt><dd>Spring Boot, REST APIs, Hibernate, JPA, ReactJS, AngularJS</dd>
+        <dt>Databases</dt><dd>PostgreSQL, MySQL, DynamoDB, OpenSearch</dd>
+        <dt>AWS</dt><dd>Lambda, ECS, EC2, S3, API Gateway, SQS, SNS, Step Functions, CloudWatch, OpenSearch, CodeBuild</dd>
+        <dt>Tools</dt><dd>Docker, AWS CDK, Git, Gradle, Maven, LaunchDarkly, Jira, Confluence</dd>
+        <dt>AI</dt><dd>OpenAI GPT, Anthropic Claude, AWS Bedrock, LangChain4j, OpenSearch k-NN, AWS Textract, Claude Code</dd>
+      </dl>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>B.Sc. in Computer Science and Engineering <span class="org"><a class="co-link" href="https://www.buet.ac.bd/web/#/" target="_blank" rel="noopener">Bangladesh University of Engineering and Technology (BUET)</a></span></h3>
+          <span class="dates">Feb 2016 - Feb 2021</span>
+        </div>
+      </article>
+    </section>
+
+    <section id="certifications" class="section">
+      <h2>Certifications</h2>
+      <ul class="plain">
+        <li>
+          <span class="cert"><img class="badge" src="images/aws-solutions-architect-associate.png" alt="AWS Certified Solutions Architect Associate badge" width="44" height="50"><span><strong>AWS Certified Solutions Architect – Associate</strong>, 2026</span></span>
+          <a href="https://www.credly.com/badges/c37a4f07-5732-448d-8ca2-37ad392d2f07" target="_blank" rel="noopener">Verify</a>
+        </li>
+        <li>
+          <span class="cert"><img class="badge" src="images/aws-developer-associate.png" alt="AWS Certified Developer Associate badge" width="44" height="50"><span><strong>AWS Certified Developer – Associate</strong>, 2026</span></span>
+          <a href="https://www.credly.com/badges/b827587f-3649-46d3-97e7-693531f3e2c2" target="_blank" rel="noopener">Verify</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="achievements" class="section">
+      <h2>Achievements</h2>
+      <ul class="plain">
+        <li>
+          <div>
+            <span><strong>Excellence Award</strong>, MarginEdge, for outstanding contributions, 2025</span>
+            <div class="award-photos">
+              <a href="images/Excellence_Award.jpg" target="_blank" rel="noopener"><img src="images/Excellence_Award.jpg" alt="MarginEdge Excellence Award trophy" loading="lazy"></a>
+              <a href="images/award-ceremony.jpg" target="_blank" rel="noopener"><img src="images/award-ceremony.jpg" alt="Receiving the MarginEdge Excellence Award" loading="lazy"></a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <span><strong>President</strong>, Association of Greater Dinajpur (EUSAGD), BUET, 2020 - 2021</span>
+        </li>
+        <li>
+          <span><strong>Board Scholarship</strong>, Higher Secondary Certificate Examination, 2015</span>
+        </li>
+        <li>
+          <span><strong>1st Runner-up</strong>, 4th Physics Olympiad (Regional), 2014</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p class="prose">
+        The best way to reach me is by email at
+        <a href="mailto:rahmanfiros123@gmail.com">rahmanfiros123@gmail.com</a> or on
+        <a href="https://www.linkedin.com/in/Md-MoshiurRahman/" target="_blank" rel="noopener">LinkedIn</a>.
+      </p>
+    </section>
+  </main>
+  </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
