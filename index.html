@@ -94,16 +94,17 @@
             <ul>
               <li>
                 <strong>Designed and led an invoice automation platform that now handles 58% of ~200k invoices a week.</strong>
-                I designed the architecture of this greenfield platform using the Saga pattern and AWS Step
+                I designed the architecture of this greenfield platform, which follows the Saga pattern on AWS Step
                 Functions, led its implementation, and built a large part of it myself. Each invoice moves through a
-                set of automated steps that can either complete, hand work off to an analyst and wait for the
-                result, or roll back cleanly. It now fully or partially automates 58% of ~200k invoices every week.
+                set of automated steps. A step can complete, hand work off to an analyst and wait for the result, or
+                fail without blocking the rest, which is what makes partial automation possible. It now fully or
+                partially automates 58% of ~200k invoices every week.
               </li>
               <li>
                 <strong>Designed the LLM layer behind our invoice automation.</strong>
                 I designed a single LangChain4j interface over OpenAI GPT and Anthropic Claude models on AWS Bedrock,
                 with structured JSON output, token tracking, throttling handling and a path for testing new models on
-                real invoices, and the team built it from that plan. It now extracts line items from invoice images
+                real invoices, and led the team that built it from that plan. It now extracts line items from invoice images
                 and reads totals, misc charges and handwriting. An eligibility check keeps LLM calls to questions
                 worth the cost, and answers that fail validation go to an analyst.
               </li>
@@ -159,11 +160,12 @@
               <li>
                 <strong>Built and ran LLM-based product prediction in production.</strong>
                 From v6 onward, each model first retrieves the most similar products for the restaurant using
-                OpenSearch k-NN search, then asks an LLM (GPT-4o mini, and later Claude 3.5, 3.7 and 4.5 Sonnet on
-                AWS Bedrock) to pick the right one, and only accepts answers that match a retrieved candidate. On the
-                production side, I handled Bedrock throttling, called the expensive model only when cheaper ones
-                weren't confident, combined several models through plurality voting before auto-closing a task, and
-                designed a more scalable model invocation flow with concurrency control and proper message routing.
+                OpenSearch k-NN search, then asks an LLM to pick the right one (GPT-4o mini in v6, then Claude 4.5
+                Sonnet in v7 and Claude 3.7 Sonnet in v8 on AWS Bedrock), and only accepts answers that match a
+                retrieved candidate. Several model versions predict each task. When they agree, that answer is used,
+                when they don't, the highest-priority version wins, and v8 is only asked when the others haven't
+                reached a final answer. On the production side, I fixed Bedrock throttling by putting SQS between SNS
+                and the model and limiting concurrency.
               </li>
               <li>
                 <strong>Built frontend features for the apps analysts use to process invoices.</strong>
